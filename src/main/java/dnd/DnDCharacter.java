@@ -1,41 +1,63 @@
 package dnd;
 
+import java.util.Arrays;
+
 class DnDCharacter {
 
+    private final int dex;
+    private final int hp;
+    private final int con;
+    private final int str;
+    private final int intel;
+    private final int wis;
+    private final int cha;
+
+    public DnDCharacter() {
+        dex = ability();
+        con = ability();
+        hp = 10 + modifier(con);
+        str = ability();
+        intel = ability();
+        wis = ability();
+        cha = ability();
+    }
+
     int ability() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        int[] rnds = {(int) (10 * Math.random() % 6 + 1), (int) (10 * Math.random() % 6 + 1), (int) (10 * Math.random() % 6 + 1), (int) (10 * Math.random() % 6 + 1)};
+        Arrays.sort(rnds);
+        return rnds[1] + rnds[2] + rnds[3];
     }
 
     int modifier(int input) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return (int) Math.floor((input - 10) / 2.0);
     }
 
     int getStrength() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return str;
     }
 
     int getDexterity() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return dex;
     }
 
     int getConstitution() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return con;
     }
 
     int getIntelligence() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return intel;
     }
 
     int getWisdom() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return wis;
     }
 
     int getCharisma() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return cha;
     }
 
     int getHitpoints() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return hp;
     }
 
 }

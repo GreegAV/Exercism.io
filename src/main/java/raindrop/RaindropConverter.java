@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RaindropConverter {
 
-    String convert(int number) {
+    String convertOld(int number) {
         StringBuilder rain = new StringBuilder();
         List<Integer> factors = new ArrayList<>();
         for (int i = 1; i <= number; ++i) {
@@ -19,6 +19,19 @@ public class RaindropConverter {
                     rain.append("Plong");
             }
         }
+        if (rain.toString().length() < 1)
+            rain.append(number);
+        return rain.toString();
+    }
+
+    String convert(int number) {
+        StringBuilder rain = new StringBuilder();
+        if (number % 3 == 0)
+            rain.append("Pling");
+        if (number % 5 == 0)
+            rain.append("Plang");
+        if (number % 7 == 0)
+            rain.append("Plong");
         if (rain.toString().length() < 1)
             rain.append(number);
         return rain.toString();
